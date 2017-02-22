@@ -1,0 +1,19 @@
+<h3>Welcome <%= @user.email %> to your uncivilization!</h3>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-bottom">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/"> <%= @nation.nation_name %></a>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li><span class="navbar-text">Capital: <%= @nation.capital %></span></li>
+      <li><span class="navbar-text">Stability: <%= @nation.stability %></span></li>
+      <li><span class="navbar-text">Lumber: <%= @nation.lumber %></span></li>
+      <li><span class="navbar-text">Minerals: <%= @nation.minerals %></span></li>
+      <li><span class="navbar-text">Oil: <%= @nation.oil %></span></li>
+      <li><span class="navbar-text">Metal: <%= @nation.metal %></span></li>
+    </ul>
+  </div>
+</nav>

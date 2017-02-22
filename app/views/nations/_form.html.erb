@@ -1,0 +1,18 @@
+<%= form_for [current_user, @nation] do |f| %>
+  <%= f.label :nation_name %>
+  <%= f.text_field :nation_name %>
+  <%= f.select(:economy_type) do %>
+   <%=  content_tag(:option, "Economy Type", :disabled => 1)%>
+     <% [['Communism', 'Communism'], ['Capitalism', "Capitalism"], ['Agrarianism', 'Agrarianism']].each do |c| %>
+       <%= content_tag(:option, c.first, value: c.last) %>
+     <% end %>
+  <% end %>
+  <%= f.select(:religion) do %>
+   <%=  content_tag(:option, "Religion", :disabled => 1)%>
+     <% [['Church of the Flying Spaghetti Monster', 'Church of the Flying Spaghetti Monster'], ['Lords of Kobol', "Lords of Kobol"], ['Pastafarian', 'Pastafarian'], ['Church of Cthulu', 'Church of Cthulu']].each do |c| %>
+       <%= content_tag(:option, c.first, value: c.last) %>
+     <% end %>
+  <% end %>
+  <%= f.text_field :basic_geography, type: 'hidden', value: @user_land_type %>
+  <%= f.submit %>
+<% end %>
