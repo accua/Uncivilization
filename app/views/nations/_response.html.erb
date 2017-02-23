@@ -1,0 +1,10 @@
+<p><%=@event.content%></p><br>
+<%= form_tag [current_user, @nation], method: "put", remote: true  do%>
+  <%= radio_button_tag(:response, @response1.id) %>
+  <%= label_tag(:response1, @response1.content) %>
+  <%= radio_button_tag(:response, @response2.id) %>
+  <%= label_tag(:response2, @response2.content) %>
+  <%= radio_button_tag(:response, @response3.id) %>
+  <%= label_tag(:response3, @response3.content) %>
+  <%= submit_tag %>
+<% end %>

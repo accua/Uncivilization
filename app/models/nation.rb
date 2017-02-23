@@ -1,6 +1,5 @@
 class Nation < ActiveRecord::Base
   belongs_to :user
-  has_many :events, through: :responses
 
   def assign_values
     @nation = Nation.last

@@ -16,6 +16,8 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"><% if user_signed_in? %> <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", :method => :delete  %> <% end %></li>
+          <li class="nav-item"><% if user_signed_in? %> <%= link_to "Create Nation", new_user_nation_path(current_user), class: "nav-link" %> <% end %></li>
+          <li class="nav-item"><% if user_signed_in? %> <%= link_to "View All Games", user_nations_path(current_user), class: "nav-link" %> <% end %></li>
           <li class="nav-item"><% if !user_signed_in? %> <%= link_to "Log In", new_user_session_path, class: "nav-link" %> <% end %></li>
           <li class="nav-item"><% if !user_signed_in? %> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> <% end %></li>
         </ul>

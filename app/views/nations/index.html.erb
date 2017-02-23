@@ -1,0 +1,5 @@
+<h3>These are your current games</h3>
+
+<% @nations.each do |nation| %>
+  <li><%= link_to nation.nation_name, user_nation_path(current_user, nation) %></li>
+  <% end %>

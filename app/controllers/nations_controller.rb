@@ -5,6 +5,10 @@ class NationsController < ApplicationController
     end
   end
 
+  def index
+    @nations = current_user.nations.all
+  end
+
   def new
     @user = current_user
     @land_type_array = ["Island", "Mountains", "Desert", "Forest", "Coastal", "Grasslands"]
@@ -27,6 +31,33 @@ class NationsController < ApplicationController
   def show
     @user = current_user
     @nation = Nation.find(params[:id])
+  end
+
+  def edit
+    @user = current_user
+    @nation = Nation.find(params[:id])
+    @events = Event.all
+    @event = @events.sample
+    @responses = @event.responses.all
+    @response1 = @responses[0]
+    @response2 = @responses[1]
+    @response3 = @responses[2]
+    respond_to do |format|
+      format.html { redirect_to user_nation_path(current_user, @nation) }
+      format.js
+    end
+  end
+
+  def update
+    @nation = Nation.find(params[:id])
+    @response = Response.find(params["response"])
+    @nation.update_nation(@response)
+    if @nation.save
+      respond_to do |format|
+        format.html { redirect_to user_nation_path(current_user, @nation) }
+        format.js
+      end
+    end
   end
 
 private
