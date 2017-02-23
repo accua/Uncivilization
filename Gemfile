@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'bootstrap', '~>4.0.0.alpha6'
+gem 'rails-assets-tether', '>= 1.3.3'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +49,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'simplecov', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
