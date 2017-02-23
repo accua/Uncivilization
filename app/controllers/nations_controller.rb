@@ -51,7 +51,7 @@ class NationsController < ApplicationController
   def update
     @nation = Nation.find(params[:id])
     @response = Response.find(params["response"])
-    @nation.update_nation(@response)
+    @nation.update_nation(@response, @nation)
     if @nation.save
       respond_to do |format|
         format.html { redirect_to user_nation_path(current_user, @nation) }

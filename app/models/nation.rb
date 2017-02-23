@@ -68,4 +68,9 @@ class Nation < ActiveRecord::Base
       end
     end
   end
+
+  def update_nation(response, nation)
+    nation
+    nation.update(lumber: (nation.lumber + response.lumber), stability: (nation.stability + response.stability), oil: (nation.oil + response.oil), metal: (nation.metal + response.metal), minerals: (nation.minerals + response.minerals), capital: (nation.capital + response.capital), population: (nation.population + response.population))
+  end
 end
