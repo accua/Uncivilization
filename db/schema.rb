@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222192128) do
+ActiveRecord::Schema.define(version: 20170223001301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "content"
+  end
 
   create_table "nations", force: :cascade do |t|
     t.string  "nation_name"
@@ -28,6 +32,19 @@ ActiveRecord::Schema.define(version: 20170222192128) do
     t.integer "oil",             default: 0
     t.integer "minerals",        default: 0
     t.integer "metal",           default: 0
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "nation_id"
+    t.string  "content"
+    t.integer "population"
+    t.integer "lumber"
+    t.integer "stability"
+    t.integer "metal"
+    t.integer "oil"
+    t.integer "capital"
+    t.integer "minerals"
   end
 
   create_table "users", force: :cascade do |t|
